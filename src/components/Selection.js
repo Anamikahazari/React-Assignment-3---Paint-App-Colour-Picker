@@ -1,13 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 const Selection = (props) => {
     const [value, changevalue] = useState({background:''});
     const valueUpdate = (nextBackground)=>{
       // props.applyColor(changevalue);
-      changevalue({background:nextBackground});
+      changevalue(nextBackground);
+      console.log("===========>",nextBackground);
     }
   return (
-    <div className="fix-box" style = {value} onClick ={()=>props.applyColor(valueUpdate)}>
+    <div className="fix-box" style = {{background:value}} onClick ={()=>props.applyColor(valueUpdate)}>
       <h2 className ="subheading">Selection</h2>
     </div>
   )

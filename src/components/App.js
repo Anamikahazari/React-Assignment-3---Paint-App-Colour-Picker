@@ -28,24 +28,28 @@ const App = () => {
   const applyColor = (updateSelectionStyle) => {
     updateSelectionStyle(nextBackground)
   }
-
+  const changeBackground = (background)=>{
+    // nextBackground = background.background;
+    console.log("inside changebackground",background);
+    selectNextBackground(background.background);
+  }
   return (
     <div id="master">
       <h5 className="heading">{title}</h5>
 
       <div className="row">
         {colourConfig.map((config, index) => (
-          <ColourSelector key={config.key} config={config} selectNextBackground={selectNextBackground} />
+          <ColourSelector key={config.key} config={config} selectNextBackground={changeBackground} />
         ))}
       </div>
 
-      {/* <div className='row' id="children-wrapper">
+      <div className="row" id="children-wrapper">
         {
           ["selection1", "selection2", "selection3"].map(key => (
             <Selection key={key} applyColor={applyColor} />
           ))
         }
-      </div> */}
+      </div>
       
     </div >
   )
